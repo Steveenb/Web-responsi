@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  
+  <!-- Tailwind CSS (optional, if you want to keep it) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.6/dist/sweetalert2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container">
+      <span class="navbar-brand text-indigo-600 font-bold">Portfolio</span>
+      
+      
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link text-gray-700" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-gray-700" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link text-gray-700" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link text-gray-700" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link text-gray-700" href="#contact">Contact</a></li>
+        </ul>
+        
+        <!-- Download CV Button -->
+        <a id="downloadCV" href="assets/CV.pdf" download class="btn btn-primary ml-4">Download CV</a>
+      </div>
+    </div>
+  </nav>
+
+<!-- Hero Section -->
+<section id="home" class="relative py-28 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Text Content -->
+      <div class="col-md-6">
+        <h1 class="display-3 font-weight-bold mb-4">
+          Hi<span class="text-yellow-300">there,</span><br />
+          i'm<span class="text-pink-300">Dayaat</span>
+        </h1>
+        <p class="lead mb-4 text-gray-200">
+          We provide creative design solutions to transform your ideas into visually stunning results.
+        </p>
+        <div class="mt-4">
+          <a href="#contact" class="btn btn-lg btn-warning text-gray-900 px-5 py-3 font-weight-bold shadow-lg">
+            Get In Touch
+          </a>
+          <a href="#portfolio" class="btn btn-lg btn-outline-light ml-3 px-5 py-3 font-weight-bold shadow-lg">
+            Explore Work
+          </a>
+        </div>
+      </div>
+
+      <!-- Image Content -->
+      <div class="col-md-6">
+        <div class="relative">
+          <img src="Foto2.jpg" alt="Profile Picture" class="rounded-lg shadow-lg img-fluid">
+          <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-black to-transparent opacity-30 rounded-lg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Background Elements -->
+  <div class="absolute top-10 left-10 bg-yellow-300 w-20 h-20 rounded-full blur-xl opacity-40"></div>
+  <div class="absolute bottom-20 right-20 bg-pink-400 w-40 h-40 rounded-full blur-2xl opacity-50"></div>
+</section>
+
+<script>
+
+  function typeEffect() {
+    const currentText = texts[textIndex];
+    if (isDeleting) {
+      textElement.textContent = currentText.substring(0, charIndex--);
+    } else {
+      textElement.textContent = currentText.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === currentText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, pauseTime);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length; // Loop back to the first text
+      setTimeout(typeEffect, 200);
+    } else {
+      setTimeout(typeEffect, isDeleting ? deletingSpeed : typingSpeed);
+    }
+  }
+
+  typeEffect(); // Start the typing effect
+</script>
+
+
+
+  <!-- About Us Section -->
+  <section id="about" class="py-28 bg-light">
+    <div class="container text-center">
+      <h2 class="display-4 mb-4">About Us</h2>
+      <p class="lead text-muted">
+        We are a team of passionate designers and developers focused on delivering creative and innovative solutions for businesses. With years of experience, we help our clients achieve success through exceptional digital strategies, modern design, and powerful web technologies.
+      </p>
+    </div>
+  </section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-28 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+  <div class="container">
+    <h2 class="display-4 mb-6 text-center font-weight-bold text-yellow-300">Portfolio</h2>
+    <p class="text-center text-gray-200 mb-5">
+      A showcase of our recent projects and creative works.
+    </p>
+    <div class="row" id="portfolioItems">
+      <!-- Portfolio items dynamically generated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Background Decorations -->
+  <div class="absolute top-0 left-0 bg-yellow-300 w-32 h-32 rounded-full blur-2xl opacity-40"></div>
+  <div class="absolute bottom-10 right-20 bg-pink-400 w-40 h-40 rounded-full blur-xl opacity-50"></div>
+</section>
+
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-28 bg-white">
+    <div class="container">
+      <h2 class="display-4 text-center mb-12">Skills</h2>
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title">Strategy & Direction</h5>
+              <p class="card-text text-muted">Crafting effective strategies for success.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title">Branding & Logo</h5>
+              <p class="card-text text-muted">Creating unique and impactful brand identities.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title">UI & UX Design</h5>
+              <p class="card-text text-muted">Delivering seamless and engaging user experiences.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <h5 class="card-title">Webflow Development</h5>
+              <p class="card-text text-muted">Building responsive and modern websites.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+<section id="contact" class="py-28 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+  <div class="container">
+    <h2 class="display-4 text-center mb-12">Contact Me</h2>
+    <form id="contactForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+      <div class="form-group">
+        <input type="text" id="name" class="form-control py-3 px-4 rounded-lg text-gray-900" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" class="form-control py-3 px-4 rounded-lg text-gray-900" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <textarea id="message" class="form-control py-3 px-4 rounded-lg text-gray-900" rows="4" placeholder="Your Message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-warning w-100 py-3 font-weight-bold rounded-lg shadow-lg">Send</button>
+    </form>
+  </div>
+</section>
+
+
+  <!-- Bootstrap and JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Handle form submission with SweetAlert2
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      // Retrieve form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Trigger SweetAlert2 popup on successful form submission
+      Swal.fire({
+        title: 'Thank you for reaching out!',
+        text: `Your message has been sent. We will get back to you soon.\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+        icon: 'success',
+        confirmButtonText: 'Close',
+      });
+
+      // Optionally reset the form after submission
+      document.getElementById('contactForm').reset();
+    }
+
+    // Dynamic Portfolio Items
+    const portfolioItems = [
+      { title: 'Project 1', imgSrc: '/path/to/image1.jpg' },
+      { title: 'Project 2', imgSrc: '/path/to/image2.jpg' },
+      { title: 'Project 3', imgSrc: '/path/to/image3.jpg' },
+    ];
+
+    const portfolioContainer = document.getElementById('portfolioItems');
+    portfolioItems.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'col-md-4 mb-4';
+      div.innerHTML = `
+        <div class="card shadow">
+          <img src="${item.imgSrc}" alt="${item.title}" class="card-img-top rounded-t-lg">
+          <div class="card-body">
+            <h5 class="card-title">${item.title}</h5>
+          </div>
+        </div>
+      `;
+      portfolioContainer.appendChild(div);
+    });
+  </script>
+</body>
+</html>
